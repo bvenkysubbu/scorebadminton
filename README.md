@@ -1,7 +1,10 @@
 # scorebadminton
 Simple Scoring App for a badminton matches
 
-# Installation
+# use it directly/demo
+https://bvenkysubbu.github.io/scorebadminton/
+
+# installation
 It is a front end only app. Just download the contents of the repository and open the index.html on a browser
 
 # screenshot
