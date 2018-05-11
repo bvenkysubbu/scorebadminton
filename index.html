@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Score Badminton</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <section class="container">
+        <div id="realm1">
+            <div id="person1" contenteditable="true">
+                Person One
+            </div>
+            <div id="score1" onclick="increaseScore1()" oncontextmenu="decreaseScore1()">
+                0
+            </div>
+            <div id="set1" onclick="increaseSet1()" oncontextmenu="decreaseSet1()">
+                0
+            </div>
+        </div>
+        <div id="realm2">
+            <div id="person2" contenteditable="true">
+                Person Two
+            </div>
+            <div id="score2" onclick="increaseScore2()" oncontextmenu="decreaseScore2()">
+                0
+            </div>
+            <div id="set2" onclick="increaseSet2()" oncontextmenu="decreaseSet2()">
+                0
+            </div>
+        </div>
+    </section>
+    <script src="js/edit.js">
+    </script>
+</body>
+
+</html>

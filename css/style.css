@@ -1,0 +1,43 @@
+@font-face {
+    font-family: quicksand;
+    src: url('quicksand.woff');
+ }
+html {
+    height: 100%;
+}
+body {
+    margin: auto;
+    min-height: 100%;
+}
+.container {
+    display: grid;
+    height: 100vh;
+    width:100vw;
+  }
+#realm1 {
+    background: black;
+    color: white;
+    font-family: quicksand;
+    font-size: 200%;
+    grid-column: 1;
+    text-align: right;
+    padding:5%;
+}
+#person1, #person2 {
+    font-size: 200%;
+}
+#score1, #score2 {
+    font-size: 1000%;
+}
+#set1, #set2 {
+    font-size: 350%;
+}
+#realm2 {
+    background: white;
+    color: black;
+    font-family: quicksand;
+    font-size: 200%;
+    grid-column: 2;
+    text-align: left;
+    padding:5%;
+}
