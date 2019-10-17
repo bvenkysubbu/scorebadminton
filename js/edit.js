@@ -36,7 +36,11 @@ function decreaseScore2() {
 function increaseSet1() {
     currentSet1 = parseInt(document.getElementById("set1").innerHTML);
     currentSet1++;
+    currentScore1 = 0;
+    currentScore2 = 0;
     document.getElementById("set1").innerHTML = currentSet1;
+    document.getElementById("score1").innerHTML = currentScore1;
+    document.getElementById("score2").innerHTML = currentScore2;
     postToMyJson();
 }
 function decreaseSet1() {
@@ -48,7 +52,11 @@ function decreaseSet1() {
 function increaseSet2() {
     currentSet2 = parseInt(document.getElementById("set2").innerHTML);
     currentSet2++;
+    currentScore1 = 0;
+    currentScore2 = 0;
     document.getElementById("set2").innerHTML = currentSet2;
+    document.getElementById("score1").innerHTML = currentScore1;
+    document.getElementById("score2").innerHTML = currentScore2;
     postToMyJson();
 }
 function decreaseSet2() {
