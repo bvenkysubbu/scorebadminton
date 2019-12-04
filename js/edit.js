@@ -9,6 +9,18 @@ var person1 = "Player 1";
 var person2 = "Player 2";
 var uidFromMyJson = '';
 
+function resetScores(){
+    currentScore1 = 0;
+    currentScore2 = 0;
+    currentSet1 = 0;
+    currentSet2 = 0;
+    document.getElementById("score1").innerHTML = currentScore1;
+    document.getElementById("score2").innerHTML = currentScore2;
+    document.getElementById("set1").innerHTML = currentSet1;
+    document.getElementById("set2").innerHTML = currentSet2;
+    postToMyJson();
+}
+
 function increaseScore1() {
     currentScore1 = parseInt(document.getElementById("score1").innerHTML);
     currentScore1++;
