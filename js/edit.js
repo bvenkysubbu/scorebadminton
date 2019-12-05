@@ -9,7 +9,7 @@ var person1 = "Player 1";
 var person2 = "Player 2";
 var uidFromMyJson = '';
 
-function resetScores(){
+function resetScores() {
     currentScore1 = 0;
     currentScore2 = 0;
     currentSet1 = 0;
@@ -88,105 +88,57 @@ $(document).ready(function () {
     });
 });
 function postToMyJson() {
-        if (uidFromMyJson != '') {
-            // Update
-            var obj = {
-                "person1": person1,
-                "person2": person2,
-                "score1": currentScore1,
-                "score2": currentScore2,
-                "set1": currentSet1,
-                "set2": currentSet2
-            };
-            var data = JSON.stringify(obj);
-            $.ajax({
-                url: "https://api.myjson.com/bins/" + uidFromMyJson,
-                type: "PUT",
-                data: data,
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data, textStatus, jqXHR) {
-                    // Should I do something here?
-                }
-            });
+    if (uidFromMyJson != '') {
+        // Update
+        var obj = {
+            "person1": person1,
+            "person2": person2,
+            "score1": currentScore1,
+            "score2": currentScore2,
+            "set1": currentSet1,
+            "set2": currentSet2
+        };
+        var data = JSON.stringify(obj);
+        $.ajax({
+            url: "https://api.myjson.com/bins/" + uidFromMyJson,
+            type: "PUT",
+            data: data,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data, textStatus, jqXHR) {
+                // Should I do something here?
+                updateShareURL();
+            }
+        });
 
-        } else {
-            // Create new My Json post and update the uidFromMyJson
-            var obj = {
-                "person1": person1,
-                "person2": person2,
-                "score1": currentScore1,
-                "score2": currentScore2,
-                "set1": currentSet1,
-                "set2": currentSet2
-            };
-            var data = JSON.stringify(obj);
-            $.ajax({
-                url: "https://api.myjson.com/bins",
-                type: "POST",
-                data: data,
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data, textStatus, jqXHR) {
-                    var json = JSON.stringify(data);
-                    var jsonObj = JSON.parse(json);
-                    uidFromMyJson = jsonObj.uri.substr(28);
-                    console.log(uidFromMyJson);
-                }
-            });
-
-        }
+    } else {
+        // Create new My Json post and update the uidFromMyJson
+        var obj = {
+            "person1": person1,
+            "person2": person2,
+            "score1": currentScore1,
+            "score2": currentScore2,
+            "set1": currentSet1,
+            "set2": currentSet2
+        };
+        var data = JSON.stringify(obj);
+        $.ajax({
+            url: "https://api.myjson.com/bins",
+            type: "POST",
+            data: data,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data, textStatus, jqXHR) {
+                var json = JSON.stringify(data);
+                var jsonObj = JSON.parse(json);
+                uidFromMyJson = jsonObj.uri.substr(28);
+                console.log(uidFromMyJson);
+                updateShareURL();
+            }
+        });
     }
+}
 
-    function updateShareURL() {
-        document.getElementById("shareurl").href = "https://scorebaddy.drumstic.com/view.html?i=" + uidFromMyJson;
-
-        if (uidFromMyJson != '') {
-            // Update
-            var obj = {
-                "person1": person1,
-                "person2": person2,
-                "score1": currentScore1,
-                "score2": currentScore2,
-                "set1": currentSet1,
-                "set2": currentSet2
-            };
-            var data = JSON.stringify(obj);
-            $.ajax({
-                url: "https://api.myjson.com/bins/" + uidFromMyJson,
-                type: "PUT",
-                data: data,
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data, textStatus, jqXHR) {
-                    // Should I do something here?
-                }
-            });
-
-        } else {
-            // Create new My Json post and update the uidFromMyJson
-            var obj = {
-                "person1": person1,
-                "person2": person2,
-                "score1": currentScore1,
-                "score2": currentScore2,
-                "set1": currentSet1,
-                "set2": currentSet2
-            };
-            var data = JSON.stringify(obj);
-            $.ajax({
-                url: "https://api.myjson.com/bins",
-                type: "POST",
-                data: data,
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data, textStatus, jqXHR) {
-                    var json = JSON.stringify(data);
-                    var jsonObj = JSON.parse(json);
-                    uidFromMyJson = jsonObj.uri.substr(28);
-                    console.log(uidFromMyJson);
-                }
-            });
-
-        }
-    }
+function updateShareURL() {
+    document.getElementById("shareurl").href = "https://scorebaddy.drumstic.com/view.html?i=" + uidFromMyJson
+}
