@@ -8,6 +8,7 @@ var currentSet2 = 0;
 var person1 = "Player 1";
 var person2 = "Player 2";
 var uidFromMyJson = '';
+postToMyJson();
 
 function resetScores() {
     currentScore1 = 0;
