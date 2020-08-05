@@ -123,8 +123,9 @@ function postToMyJson() {
             "set2": currentSet2
         };
         var data = JSON.stringify(obj);
+        var unique_id = 'scorebadminton_12345';
         $.ajax({
-            url: "https://api.myjson.com/bins",
+            url: "https://jsonbox.io/" + unique_id,
             type: "POST",
             data: data,
             contentType: "application/json; charset=utf-8",
@@ -132,9 +133,9 @@ function postToMyJson() {
             success: function (data, textStatus, jqXHR) {
                 var json = JSON.stringify(data);
                 var jsonObj = JSON.parse(json);
-                uidFromMyJson = jsonObj.uri.substr(28);
-                console.log(uidFromMyJson);
-                updateShareURL();
+                // uidFromMyJson = jsonObj.uri.substr(28);
+                console.log(json);
+                // updateShareURL();
             }
         });
     }
